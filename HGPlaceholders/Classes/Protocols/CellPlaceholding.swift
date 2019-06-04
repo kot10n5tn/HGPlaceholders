@@ -26,12 +26,12 @@ protocol CellPlaceholding {
     /// - Parameters:
     ///   - style: the style to apply
     ///   - tintColor: the tint color, is used for some items when the style color is nil
-    open func apply(style: PlaceholderStyle, tintColor: UIColor?)
+    func apply(style: PlaceholderStyle, tintColor: UIColor?)
     
     ///  Sets in the cell the placeholder texts, image, ...
     ///
     /// - Parameter data: the data of the cell (texts, images, etc)
-    open func apply(data: PlaceholderData?)
+    func apply(data: PlaceholderData?)
 }
 
 
@@ -44,7 +44,7 @@ extension CellPlaceholding {
     /// - Parameters:
     ///   - style: the style to apply
     ///   - tintColor: the tint color, is used for some items when the style color is nil
-    open func apply(style: PlaceholderStyle, tintColor: UIColor?) {
+    public func apply(style: PlaceholderStyle, tintColor: UIColor?) {
         cellView.backgroundColor = style.backgroundColor
         
         let buttonBackgroundColor = style.actionBackgroundColor ?? tintColor
@@ -68,7 +68,7 @@ extension CellPlaceholding {
     ///  Sets in the cell the placeholder texts, image, ...
     ///
     /// - Parameter data: the data of the cell (texts, images, etc)
-    open func apply(data: PlaceholderData?) {
+    public func apply(data: PlaceholderData?) {
         actionButton?.setTitle(data?.action, for: .normal)
         actionButton?.isHidden = (data?.action == nil)
         
